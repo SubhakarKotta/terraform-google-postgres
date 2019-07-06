@@ -76,11 +76,6 @@ resource "google_sql_database_instance" "master" {
   }
 }
 
-resource "google_sql_database" "initdatabase" {
-  name     = "${google_sql_database_instance.master.name}"
-  instance = "${google_sql_database_instance.master.name}"
-}
-
 resource "google_sql_user" "user" {
   depends_on = [
     "google_sql_database_instance.master",
