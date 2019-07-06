@@ -25,6 +25,6 @@ output "master_ip_addresses" {
   value       = "${jsonencode(google_sql_database_instance.master.ip_address)}"
 }
 
-output "db_dependency_id" {
+output "dependency_id" {
   value = "${join("/", list(google_sql_database_instance.master.name,google_sql_user.user.name,google_sql_database_instance.master.private_ip_address,google_sql_database_instance.master.ip_address.0.ip_address))}"
 }
