@@ -84,4 +84,8 @@ resource "google_sql_user" "user" {
   instance = "${google_sql_database_instance.master.name}"
   name     = "${var.sql_user}"
   password = "${var.sql_pass}"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
