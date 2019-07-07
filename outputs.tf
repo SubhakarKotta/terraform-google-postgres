@@ -24,7 +24,3 @@ output "master_ip_addresses" {
   description = "All IP addresses of the master instance JSON encoded, see https://www.terraform.io/docs/providers/google/r/sql_database_instance.html#ip_address-0-ip_address"
   value       = "${jsonencode(google_sql_database_instance.master.ip_address)}"
 }
-
-output "dependency_id" {
-  value = "${join("/", list(google_sql_database_instance.master.name,google_sql_user.user.name,google_sql_database_instance.master.private_ip_address,google_sql_database_instance.master.ip_address.0.ip_address))}"
-}
